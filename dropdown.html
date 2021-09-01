@@ -1,0 +1,110 @@
+<style>
+body{
+    background-color: beige;
+}
+
+.navbar{
+    background-color: darkgray;
+}
+
+.container{
+    position: relative;
+    display: inline-block;
+}
+.dropdown{
+    color: white;
+    padding: 14px 16px;
+    cursor: pointer; 
+    font-size: 20px;
+}
+
+.dropdown:hover{
+    color: aquamarine;
+}
+
+.content{
+    display: none;
+    position: absolute;
+    background-color: blanchedalmond;
+}
+
+.content a{
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    text-align: left;
+}
+
+.container:hover .content{
+  display: block;
+}
+
+ul {
+    background-color: darkgray;
+    position: fixed;
+    top: 0;
+    width: 99%;
+    padding: 1px;
+    list-style-type: none;
+}
+
+li {
+    float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin-right: 20px;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+    color: aquamarine;
+}
+
+span{
+    font-family: fantasy;
+    color: aquamarine;
+}
+
+span:hover{
+    color: white;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Example</title>
+</head>
+<body>
+    <div class="navbar">
+    <ul>
+        <li><a href="#"><span>Website Name</span></a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <li><div class="container">
+            <div class="dropdown"> Email </div>
+                <div class="content">
+                    <a href="">Google</a>
+                    <a href="">Yahoo</a>
+                    <a href="">Outlook</a>
+                    <a href="">Aim</a>
+                </div>
+            </div>
+        </li>
+        <li style="float: right"><a href="#">Log Out</a></li>
+    </ul>
+    </div>
+</body>
+</html>
