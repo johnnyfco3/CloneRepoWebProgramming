@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import '@fortawesom/fontawesome-free';
+import '@fortawesome/fontawesome-free';
 import 'bulma'
 import App from './App.vue'
 import router from './router'
