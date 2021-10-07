@@ -13,15 +13,18 @@
 </template>
 
 <script>
-import Session, { Login } from "../services/session";
+import Session from "../services/session";
 
 export default {
-    data: ()=>({
-        Session
-    }),
+    data() {
+        return ({
+            Session
+        })
+    },
     methods: {
         login(){
-            Login();
+            this.$router.push('/login');
+            //this.Session.Login();
         }
     },
     computed: {

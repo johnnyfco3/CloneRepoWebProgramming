@@ -18,6 +18,10 @@
       <a class="navbar-item" href="/">
         Home
       </a>
+      
+      <a class="navbar-item" href="/feed">
+        Feed
+      </a>
 
       <a class="navbar-item">
         Documentation
