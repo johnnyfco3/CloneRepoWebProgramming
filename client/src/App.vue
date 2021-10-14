@@ -1,7 +1,11 @@
 <template>
 <div class="container">
-    <Nav />
-    <router-view/>
+    <div class="columns">
+      <div class="column">
+         <Nav />
+         <router-view/>
+      </div>
+    </div>
   </div>
 </template>
 
