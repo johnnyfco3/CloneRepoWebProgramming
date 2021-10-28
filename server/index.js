@@ -12,12 +12,19 @@ const port = process.env.PORT || 3000
 
 app
   .use('/', express.static(path.join(__dirname, '../docs')))
+
+  .use(express.json())
   .use('/users', usersController)
   .use('/posts', postsController)
 
 app
   .get('*', (req, res)=>
     res.sendFile(path.join(__dirname, '../docs/index.html')))
+
+app
+  .use((err, req, res, next)=>{
+    res.status(err.code || 500).send(err);
+  })
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

@@ -13,5 +13,9 @@ app
     .get("/:id", (req, res, next)=>{
         res.send(model.Get(req.params.id));
     })
+    .post("/", (req, res, next)=>{
+        const newPost = model.Add(req.body)
+        res.send(newPost);
+    })
 
 module.exports = app;
