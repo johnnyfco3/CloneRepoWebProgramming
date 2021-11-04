@@ -11,11 +11,13 @@ app
         res.send(model.Search(req.query.q));
     })
     .get("/:id", (req, res, next)=>{
+        console.log(req.headers);
+        
         res.send(model.Get(req.params.id));
     })
     .post("/", (req, res, next)=>{
         const newPost = model.Add(req.body)
-        res.send(newPost);
+        res.status(201).send(newPost);
     })
 
 module.exports = app;
