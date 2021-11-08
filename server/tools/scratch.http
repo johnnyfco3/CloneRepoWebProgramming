@@ -53,3 +53,6 @@ Content-Type: application/json
     "password": "password"
 }
 
+###
+http://localhost:3100/users/async
+

@@ -11,6 +11,7 @@ app
         res.send(model.Get(req.params.user_id));
     })
     .post("/login", (req, res, next)=>{
+        
         model.Login(req.body.handle, req.body.password)
             .then(user=>{
                 res.send(user);
@@ -26,5 +27,4 @@ app
             })
             .catch(next);
     })
-
 module.exports = app;
