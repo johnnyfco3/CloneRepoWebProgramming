@@ -5,13 +5,32 @@ const app = express.Router();
 
 app 
     .get("/", (req, res, next)=>{
-        res.send(model.GetAll());
+        model.GetAll()
+        .then(user=>{
+            res.send(user);
+        })
+        .catch(next)
     })
     .get("/:user_id", (req, res, next)=>{
-        res.send(model.Get(req.params.user_id));
+        model.Get(req.params.user_id)
+        .then(user=>{
+            res.send(user);
+    })
+    .catch(next)
+    })
+    .patch("/:user_id", (req, res, next) =>{
+        model.Update(req.params.user_id, req.body)
+            .then( user=> res.send(user) )
+            .catch(next) 
+
+    })
+    .delete("/:user_id", (req, res, next) =>{
+        model.Delete(req.params.user_id)
+            .then( user=> res.send({ deleted: user }) )
+            .catch(next) 
+
     })
     .post("/login", (req, res, next)=>{
-        
         model.Login(req.body.handle, req.body.password)
             .then(user=>{
                 res.send(user);
@@ -20,11 +39,17 @@ app
 
     })
     .post("/register", (req, res, next)=>{
-
-        model.Add(req.body)
+         model.Add(req.body)
             .then(user=>{
                 res.status(201).send(user);
             })
             .catch(next);
+    })
+    .post("/seed", (req, res, next)=>{
+        model.Seed()
+        .then(user=>{
+            res.send("Created").status(201);
+        })
+        .catch(next)
     })
 module.exports = app;
