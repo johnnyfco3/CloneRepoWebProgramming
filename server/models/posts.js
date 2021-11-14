@@ -53,9 +53,9 @@ const addOwnerPipeline = [
         from: "users",
         localField: 'user_handle',
         foreignField: 'handle',
-        as: 'owner',
+        as: 'user',
     }},
-    {$unwind: "$owner"},
+    {$unwind: "$user"},
     { $project: { "owner.password": 0}}
 ];
 
