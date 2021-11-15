@@ -67,7 +67,7 @@ module.exports.GetWall = function GetWall(handle) {
     return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
 
-module.exports.GetFeed = function GetFeed(handle) {
+module.exports.GetFeed_ = function GetFeed_(handle) {
     const query = Users.collection.aggregate([
         {$match: { handle }},
         {"$lookup" : {
@@ -80,8 +80,16 @@ module.exports.GetFeed = function GetFeed(handle) {
         {$replaceRoot: { newRoot: "$posts" } },
     ].concat(addOwnerPipeline));
     return query.toArray();
-    //return listWithOwner()
-    //.match(post=> GetByHandle(handle).following.some(f=> f.handle == post.user_handle && f.isApproved) );
+}
+
+module.exports.GetFeed = async function (handle) {
+    //  The "MongoDB" way to do things. (Should test with a large `following` array)
+    const user = await Users.collection.findOne({ handle });
+    const targets = user.following.filter(x=> x.isApproved).map(x=> x.handle).concat(handle)
+    const query = collection.aggregate([
+        {$match: { user_handle: {$in: targets} } },
+     ].concat(addOwnerPipeline));
+    return query.toArray();
 }
 
 module.exports.Get = function Get(post_id) { return collection.findOne({_id: new ObjectId(post_id) }); }
