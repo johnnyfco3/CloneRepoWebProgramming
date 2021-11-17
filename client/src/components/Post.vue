@@ -1,9 +1,9 @@
 <template>
-    <div class="card">
+  <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
       <img :src="post.src" :alt="post.alt">
-      <button class="delete" @click="$emit('remove')"></button>
+        <button class="delete" @click="$emit('remove')"></button>
     </figure>
   </div>
   <div class="card-content">
@@ -14,7 +14,7 @@
         </figure>
       </div>
       <div class="media-content">
-        <p class="title is-4">{{post.user.firstName}} {{post.user.firstName}}</p>
+        <p class="title is-4"> {{post.user.firstName}} {{post.user.lastName}} </p>
         <p class="subtitle is-6">{{post.user.handle}}</p>
       </div>
     </div>
@@ -27,10 +27,10 @@
       <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
   </div>
-  <footer class="card-footer">
-    <a href="#" class="card-footer-item">Save</a>
-    <a href="#" class="card-footer-item">Edit</a>
-    <a href="#" class="card-footer-item">Delete</a>
+    <footer class="card-footer">
+        <a href="#" class="card-footer-item">Save</a>
+        <a href="#" class="card-footer-item">Edit</a>
+        <a href="#" class="card-footer-item">Delete</a>
   </footer>
 </div>
 </template>
@@ -40,14 +40,13 @@ export default {
     props: {
         post: Object
     }
-
 }
 </script>
 
 <style>
-button.delete{
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
+    button.delete {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
 </style>

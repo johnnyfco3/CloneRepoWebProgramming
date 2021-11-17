@@ -11,7 +11,7 @@ import router from './router'
 createApp(App)
     .use(router)
     .use(Notification)
-    .user(Config,{
-        iconPack:'fas'
+    .use(Config, {
+        iconPack: 'fas'
     })
     .mount('#app')

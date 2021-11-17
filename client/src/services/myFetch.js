@@ -3,8 +3,9 @@ import session from "./session";
 const API_ROOT = process.env.VUE_APP_API_ROOT ?? 'http://localhost:3100/';
 
 export async function api(url, data = null, method = null){
-    try{
+    try {
         let response;
+
         if(data){
             response = await fetch(API_ROOT + url, {
                 method: method ?? 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -14,8 +15,7 @@ export async function api(url, data = null, method = null){
                 },
                 body: JSON.stringify(data) // body data type must match "Content-Type" header
               });
-        }
-        else{
+        }else{
             response = await fetch(API_ROOT + url);
         }
         
@@ -23,7 +23,7 @@ export async function api(url, data = null, method = null){
             throw await response.json();
         }
         return await response.json();
-    }catch(err){
-       session.Error(err);
+    } catch (err) {
+        session.Error(err);
     }
 }
