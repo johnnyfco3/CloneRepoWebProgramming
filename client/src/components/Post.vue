@@ -15,8 +15,9 @@
       </div>
       <div class="media-content">
         <p class="title is-4"> {{post.user.firstName}} {{post.user.lastName}} </p>
-        <p class="subtitle is-6">{{post.user.handle}}</p>
-        <time :datetime="post.time">{{prettyDate}}</time>
+        <p class="subtitle is-6">{{post.user.handle}}
+              <time :datetime="post.time">{{prettyDate}}</time>
+        </p>
       </div>
     </div>
 
@@ -39,13 +40,13 @@ export default {
     },
     computed:{
       prettyDate(){
-        if(this.post.time){
-        return this.post.time.toDateString()
+            if(this.post.time && this.post.time.toDateString){
+                return this.post.time.toDateString()
+            }else{
+                return 'Never'
+            }
+            
         }
-        else{
-          return 'Never'
-        }
-      }
     }
 }
 </script>

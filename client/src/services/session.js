@@ -9,7 +9,7 @@ const session = {
     Login(handle, password){
 
         try {
-            const response = Login(handle, password);
+            const response = await Login(handle, password);
 
             this.user = response.user;
     
