@@ -6,7 +6,7 @@ const session = {
     user: null,
     messages: [],       // {text: string, type: string }
     toRoute: '/feed',
-    Login(handle, password){
+    async Login(handle, password){
 
         try {
             const response = await Login(handle, password);
