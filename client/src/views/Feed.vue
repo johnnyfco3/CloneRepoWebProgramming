@@ -33,7 +33,7 @@ import session from "../services/session";
 import { Add, Delete, GetFeed } from "../services/posts";
 import PostEdit from '../components/Post-edit.vue';
 
-const newPost = () =>({ user: session.user, user_handle: session.user.user_handle })
+const newPost = () =>({ user: session.user, user_handle: session.user.handle })
 
 export default {
     components: {
