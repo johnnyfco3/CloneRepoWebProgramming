@@ -14,11 +14,11 @@ function name(){
 }
 
 export default () => !Session.user ? 
-    <div className="buttons">
-          <a className="button is-primary">
+    <div class="buttons">
+          <a class="button is-primary">
             <strong>Sign up</strong>
           </a>
-          <a className="button is-light" onClick={ login }>
+          <a class="button is-light" onClick={ login }>
             Log in
           </a>
     </div> :
