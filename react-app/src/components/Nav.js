@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.svg';
-//import LoginBadge from './LoginBadge';
+import LoginBadge from './LoginBadge';
 
 export default function Nav() {
 
@@ -61,7 +61,7 @@ export default function Nav() {
 
       <div className="navbar-end">
         <div className="navbar-item">
-          <login-badge />
+          <LoginBadge />
         </div>
       </div>
     </div>
