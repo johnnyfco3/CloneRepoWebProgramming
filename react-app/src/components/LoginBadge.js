@@ -1,14 +1,16 @@
 import React from 'react';
-//import Session from "../services/session";
-const Session = {};
+import Session from "../services/session";
+
+//const Session = {};
 
 function login(){
-    this.$router.push('/login');
+    Session.Error('Not Implemented Yet')
+    //this.$router.push('/login');
     //this.Session.Login();
 }
 
 function name(){
-    return this.Session.user.firstName + ' ' + this.Session.user.lastName;
+    return Session.user.firstName + ' ' + Session.user.lastName;
 }
 
 export default () => !Session.user ? 
@@ -16,10 +18,10 @@ export default () => !Session.user ?
           <a className="button is-primary">
             <strong>Sign up</strong>
           </a>
-          <a className="button is-light" click="login">
+          <a className="button is-light" onClick={ login }>
             Log in
           </a>
     </div> :
     <div v-else>
-        Hello {name}
+        Hello {name()}
     </div>
